@@ -1,3 +1,7 @@
+---
+title: qt知识点
+---
+
 ## 信号与槽
 ### 信号(Signal)
 信号（Signal）就是在特定情况下被发射的事件，例如PushButton 最常见的信号就是鼠标单击时发射的 clicked() 信号，一个 ComboBox 最常见的信号是选择的列表项变化时发射的 CurrentIndexChanged() 信号。

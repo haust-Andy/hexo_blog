@@ -1,3 +1,7 @@
+---
+title: 虚拟机ubuntu初始化root用户密码
+---
+
 # 虚拟机ubuntu初始化root用户密码
 第一步：Ctrl+Alt+T打开终端 <br>
 第二步：输入命令 sudo passwd root <br>
