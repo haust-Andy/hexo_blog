@@ -5,7 +5,7 @@
 # Site
 title: ZZY
 subtitle: ""
-description: "一位尝试改变世界的程序员"
+description: "正在尝试改变世界"
 keywords: c++
 author: ZHIYANG
 language: zh-CN
@@ -13,7 +13,7 @@ timezone: ""
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: https://zhiyanga.netlify.app
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
