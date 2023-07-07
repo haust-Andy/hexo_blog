@@ -1,5 +1,7 @@
 ---
 title: 虚拟机ubuntu初始化root用户密码
+tags: 环境配置
+categories: 环境配置
 ---
 
 # 虚拟机ubuntu初始化root用户密码

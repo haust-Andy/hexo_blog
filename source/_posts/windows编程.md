@@ -1,5 +1,7 @@
 ---
 title: windows知识点
+tags: C++
+categories: C++
 ---
 
 # 基础知识

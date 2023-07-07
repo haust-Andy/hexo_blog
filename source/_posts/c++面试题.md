@@ -1,6 +1,7 @@
-
 ---
 title: C++知识点
+tags: C++
+categories: C++
 ---
 
 # 1.C++的内存分区

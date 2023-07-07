@@ -1,5 +1,7 @@
 ---
 title: qt知识点
+tags: C++
+categories: C++
 ---
 
 ## 信号与槽

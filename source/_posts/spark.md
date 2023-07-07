@@ -1,5 +1,7 @@
 ---
 title: spark知识点
+tags: 大数据
+categories: 大数据
 ---
 
 ## spark核心模块
