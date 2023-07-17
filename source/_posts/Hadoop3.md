@@ -1,3 +1,8 @@
+---
+title: Hadoop是一个海量数据存储和计算的平台
+tags: Hadoop
+categories: 大数据
+---
 # Hadoop是一个海量数据存储和计算的平台
 #### 分布式存储
 ![Alt text](/img/HadoopDistributedStorageArchitecture.png.png)

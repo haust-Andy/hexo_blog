@@ -1,6 +1,6 @@
 ---
 title: Ubuntu 如何更新软件源(阿里源、华为源、清华源等)
-tags: 环境配置
+tags: Ubuntu
 categories: 环境配置
 ---
 

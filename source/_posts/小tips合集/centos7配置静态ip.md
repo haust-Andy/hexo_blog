@@ -1,6 +1,6 @@
 ---
 title: Centos 7 配置静态IP
-tags: 环境配置
+tags: Centos
 categories: 环境配置
 ---
 

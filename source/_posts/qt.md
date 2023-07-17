@@ -1,6 +1,6 @@
 ---
 title: qt知识点
-tags: C++
+tags: qt
 categories: C++
 ---
 

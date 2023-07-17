@@ -1,7 +1,7 @@
 ---
 title: javaType 与 jdbcType对应关系：
-tags: 环境配置
-categories: springboot相关
+tags: springboot
+categories: springboot
 ---
     jdbcType 与 javaType 的类型对应
     jdbcType	javaType

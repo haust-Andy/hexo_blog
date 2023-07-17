@@ -1,6 +1,6 @@
 ---
 title: spark知识点
-tags: 大数据
+tags: spark
 categories: 大数据
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: 实现虚拟机和主机之间的文件传输
-tags: 环境配置
+title: 实现vmware虚拟机和主机之间的文件传输
+tags: vmware
 categories: 环境配置
 ---
 
