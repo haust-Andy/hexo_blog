@@ -211,7 +211,7 @@ footer:
   owner:
     enable: true
     since: 2020
-  custom_text: Hi, welcome to my world!
+  custom_text: 你好，欢迎来到我的世界！：）
   copyright: true # Copyright of theme and framework
 
 # aside (側邊欄)
@@ -748,11 +748,15 @@ subtitle:
   enable: true
   # Typewriter Effect (打字效果)
   effect: true
+  startDelay: 300 # time before typing starts in milliseconds
+  typeSpeed: 150 # type speed in milliseconds
+  backSpeed: 50 # backspacing speed in milliseconds
+  loop: true
   # Customize typed.js (配置typed.js)
   # https://github.com/mattboldt/typed.js/#customization
   typed_option:
-  source: "https://www.jinrishici.com/"
-
+  source: 3
+  #  source:
   # source 調用第三方服務
   # source: false 關閉調用
   # source: 1  調用一言網的一句話（簡體） https://hitokoto.cn/
@@ -763,6 +767,8 @@ subtitle:
 
   # 如果關閉打字效果，subtitle 只會顯示 sub 的第一行文字
   sub:
+    # - 今日事&#44;今日毕
+    # - Never put off till tomorrow what you can do today
 
 # Loading Animation (加載動畫)
 preloader:
@@ -800,7 +806,7 @@ fancybox: true
 # abcjs (樂譜渲染)
 # See https://github.com/paulrosen/abcjs
 abcjs:
-  enable: false
+  enable: true
   per_page: true
 
 # mermaid
@@ -965,7 +971,7 @@ CDN:
       opacity: 0.7 # the opacity of line (0~1), default: 0.5.
       zIndex: -1 # z-index property of the background, default: -1.
       count: 99 # the number of lines, default: 99.
-      mobile: false # false 手机端不显示 true 手机端显示
+      mobile: true # false 手机端不显示 true 手机端显示
     # lazyload:
     # instantpage:
     # typed:
