@@ -1,5 +1,6 @@
 ---
 title: qt知识点
+date: 2023-06-08 
 tags: qt
 categories: C++
 ---

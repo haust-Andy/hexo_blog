@@ -1,14 +1,15 @@
 ---
 title: Hadoop是一个海量数据存储和计算的平台
+date: 2023-06-19
 tags: Hadoop
 categories: 大数据
 ---
 # Hadoop是一个海量数据存储和计算的平台
 #### 分布式存储
-![Alt text](/img/HadoopDistributedStorageArchitecture.png.png)
+![Alt text](../img/HadoopDistributedStorageArchitecture.png)
 #### 分布式计算
 移动计算：把计算程序移动到数据端进行计算
-![Alt text](/img/HadoopDistributedComputing.png)
+![Alt text](../img/HadoopDistributedComputing.png)
 ## 三大核心组件
 ### HDFS
 HDFS负责海量数据的分布式存储 <br>
@@ -23,7 +24,7 @@ Reduce阶段是一个单独的聚合程序
 Yarn负责集群资源的管理和调度，支持主从架构，主节点最多可以有两个，从节点可以有多个 <br>
 主节点（ResourceManager）进程主要负责集群资源的分配和管理 <br>
 从节点（NodeManager）主要负责单节点资源管理
-![Alt text](/img/HadoopBigdataEcosystem.png)
+![Alt text](../img/HadoopBigdataEcosystem.png)
 ## Hadoop发行版介绍
 官方版本：Apache Hadoop 开源，集群安装维护比较麻烦 <br>
 第三方发行版本：Cloudera hadoop(CDH) 商业版，使用Cloudera Manager安装维护比较方便 <br>
