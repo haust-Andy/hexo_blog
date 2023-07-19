@@ -193,14 +193,12 @@ int main(int argc, char* argv[])
 操作系统调用特定函数。该请求通过 signal 函数调用完成（因此称 signal 为信号注册函数）。
 
 > #include<signal.h>  
-> _<big>
-> void (*signal(int signo, void(*func)(int))) (int)
-> </big>_;  
-> 等价于==  
+> void (*signal(int signo, void(_func)(int))) (int);    
+> 等价于      
 > typedef void(*signal_handler)(int)  
 > signal_handler signal(int signo, signal_handler func)  
 > 函数名 ∶signal
-> 参数 ∶int signo,void(*func)(int)
+> 参数 ∶int signo,void(*func)(int) 
 > 返回类型 ∶ 参数为 int 型，返回 void 型函数指针。
 
 调用上述函数时，第一个参数为特殊情况信息，第二个参数为特殊情况下将要调用的函
@@ -215,17 +213,19 @@ _样例_
 编写调用 signal 函数的语句完成如下请求
 
 1. "子进程终止则调用 mychild 函数。"
-   > signal(SIGCHLD, mychild);
+
+> signal(SIGCHLD, mychild);
 
 此时 mychild 函数的参数应为 int，返回值类型应为 void。对应 signal 函数的第二个参数。
 <br>另外，常数 SIGCHLD 表示子进程终止的情况，应成为 signal 函数的第一个参数。
 
 2. "已到通过 alarm 函数注册的时间，请调用 timeout 函数。"
 
-   > signal(SIGALRM, timeout);
+> signal(SIGALRM, timeout);
 
 3. "输入 CTRL+C 时调用 keycontrol 函数。"
-   > signal(SIGINT, keycontrol);
+
+> signal(SIGINT, keycontrol);
 
 以上就是信号注册过程。注册好信号后，发生注册信号时（注册的情况发生时），操作系统将调用该信号对应的函数
 
@@ -287,4 +287,131 @@ int main(int argc, char* argv[]){
 号时，为了调用信号处理器，将唤醒由于调用 sleep 函数而进入阻塞状态的进程。而且，进
 程一旦被唤醒，就不会再进入睡眠状态。即使还未到 sleep 函数中规定的时间也是如此。 所以，主程序的一个 while 循环运行不到 10 秒就会结束
 
-### Sigaction 函数——利用 Sigaction 函数进行信号处理
+### Sigaction 函数
+
+——利用 Sigaction 函数进行信号处理
+的 signal 足以用来编写防止僵尸进程生成的代码。介绍这个更强大的 sigaction 函数，是因为 sigaction 函数类似于 signal 函数，而且完全可以代替后者，也更稳定。之所以稳定，是因为如下原因 ∶
+"signal 在 UNIX 系列的不同操作系统中可能存在区别，但 sigaction 完全相同。" 实际上现在很少使用 signal 函数编写程序，它只是为了保持对旧程序的兼容。
+
+> #include<signal.h>
+> int sigaction(int signo, const struct sigaction*act, struct sigaction*oldact);
+> → 成功时返回 0，失败时返回-1
+
+- signo 传递信号信息。
+- act 对应于第一个参数的信号处理函数（信号处理器）信息。
+- oldact 通过此参数获取之前注册的信号处理函数指针，若不需要则传递 0。
+
+声明并初始化 sigaction 结构体变量，该结构体定义如下
+
+```
+struct sigaction{
+    void(*sa_handler)(int); //保存信号处理函数的指  针值（地址值）
+    sigset_t sa mask;//这 2 个成员用于指定信号相关的    选项和特性,一般初始化为 0
+    int sa_flags;
+}
+```
+
+```
+#include <stdio.h>
+#include <unistd.h>
+#include <signal.h>
+void timeout(int sig){
+    if (sig == SIGALRM)
+        puts("Time out!");
+    alarm(2);
+}
+int main(int argc, char* argv[])
+{
+    //为了注册信号处理函数，声明 sigaction 结构体变量并在 sa_handler 成员中保
+    //存函数指针值。
+    struct sigaction act;
+    act.sa_handler = timeout;
+    sigemptyset(&act.sa_mask);
+    act.sa_flags = 0;
+    //注册 SIGALRM 信号的处理器。调用 alarm 函数预约 2 秒后发生 SIGALRM 信号。
+    sigaction(SIGALRM, &act, 0);
+    alarm(2);
+    for (int i = 0; i < 3; i++){
+        puts("wait...");
+        sleep(100);
+    }
+    return 0;
+}
+```
+
+#### **利用信号处理技术消灭僵尸进程**
+
+子进程终止时将产生 SIGCHLD 信号
+
+```
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <signal.h>
+#include <sys/wait.h>
+void read_childproc(int sig)
+{
+    int status;
+    pid_t id = waitpid(-1, &status, WNOHANG);
+    if (WIFEXITED(status)){
+        printf("Removed proc id: %d \n", id);
+        printf("Child send: %d \n", WEXITSTATUS(status));
+    }
+}
+int main(int argc, char* argv[])
+{
+    pid_t pid;
+    struct sigaction act;
+    act.sa_handler = read_childproc;
+    sigemptyset(&act.sa_mask);
+    act.sa_flags = 0;
+    //注册 SIGCHLD 信号对应的处理器。若子进程终止，则调用 read_childproc 函数。
+    //处理函数中调用了 waitpid 函数，所以子进程将正常终止，不会成为僵尸进程
+    sigaction(SIGCHLD, &act, 0);
+    pid = fork();
+    if (pid == 0){
+        puts("Hi! I'm child process");
+        sleep(10);
+        return 12;
+    }else{
+        printf("Child proc id: %d \n", pid);
+        pid = fork();
+        if (pid == 0){
+            puts("Hi! I'm child process");
+            sleep(10);
+            exit(24);
+        }else{
+            int i;
+            printf("Child proc id: %d \n", pid);
+            //for 循环∶为了等待发生 SIGCHLD 信号，使父进程共暂停 5 次，每次间隔 5 秒。发生
+            //信号时，父进程将被唤醒，因此实际暂停时间不到 25 秒。
+            for (i = 0; i < 5; i++){
+                puts("wait...");
+                sleep(5);
+            }
+        }
+    }
+    return 0;
+}
+```
+
+运行结果
+
+```
+Child proc id: 1629
+Hi! I'm child process
+Child proc id: 1630
+Hi! I'm child process
+wait...
+wait...
+Removed proc id: 1629
+Child send: 12
+wait...
+Removed proc id: 1630
+Child send: 24
+wait...
+wait...
+```
+
+可以看出，子进程并未变成僵尸进程，而是正常终止了。
