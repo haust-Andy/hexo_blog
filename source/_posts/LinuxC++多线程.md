@@ -1,5 +1,5 @@
 ---
-title: LinuxC++多线程
+title: Linux C++ 多线程
 date: 2023-07-25 16:41:37
 tags: 多线程
 categories: C++
