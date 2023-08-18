@@ -845,9 +845,14 @@ pjax:
     # - xxxx
 
 # Inject the css and script (aplayer/meting)
-aplayerInject:
-  enable: false
-  per_page: true
+
+aplayer:
+  meting: true
+  asset_inject: false
+
+#aplayerInject:
+# enable: true
+# per_page: true
 
 # Snackbar (Toast Notification 彈窗)
 # https://github.com/polonel/SnackBar
@@ -996,7 +1001,5 @@ CDN:
     # prismjs_autoloader:
     # artalk_js:
     # artalk_css:
-    busuanzi:
-      <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-      <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    # busuanzi:
     # abcjs_basic_js:
