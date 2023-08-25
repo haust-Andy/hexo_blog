@@ -3,8 +3,8 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: ZZY
-subtitle: ""
+title: 宇宙机高级技工的空间站
+subtitle: "对一切充满好奇"
 description: "正在尝试改变世界"
 keywords: c++
 author: ZHIYANG
@@ -103,5 +103,3 @@ theme: butterfly
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ""
-
-
