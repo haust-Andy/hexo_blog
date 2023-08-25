@@ -251,7 +251,7 @@ aside:
   card_tags:
     enable: true
     limit: 40 # if set 0 will show all
-    color: false
+    color: true
     orderby: random # Order of tags, random/name/length
     order: 1 # Sort of order. 1, asc for ascending; -1, desc for descending
     sort_order: # Don't modify the setting unless you know how it works
@@ -364,13 +364,13 @@ algolia_search:
 
 # Local search
 local_search:
-  enable: false
+  enable: true
   # Preload the search data when the page loads.
   preload: false
   # Show top n results per article, show all results by setting to -1
   top_n_per_article: 1
   # Unescape html strings to the readable one.
-  unescape: false
+  unescape: true
   CDN:
 
 # Docsearch
@@ -692,9 +692,9 @@ canvas_nest:
 
 # Mouse click effects: fireworks (鼠標點擊效果: 煙火特效)
 fireworks:
-  enable: false
+  enable: true
   zIndex: 9999 # -1 or 9999
-  mobile: false
+  mobile: true
 
 # Mouse click effects: Heart symbol (鼠標點擊效果: 愛心)
 click_heart:
@@ -703,8 +703,11 @@ click_heart:
 
 # Mouse click effects: words (鼠標點擊效果: 文字)
 ClickShowText:
-  enable: false
+  enable: true
   text:
+    - 6
+    - 666
+    - 666666
     # - I
     # - LOVE
     # - YOU
@@ -719,7 +722,7 @@ display_mode: light
 # Beautify (美化頁面顯示)
 beautify:
   enable: false
-  field: post # site/post
+  field: site # site/post
   title-prefix-icon: # '\f0c1'
   title-prefix-icon-color: # '#F47466'
 
@@ -747,7 +750,7 @@ hr_icon:
 subtitle:
   enable: true
   # Typewriter Effect (打字效果)
-  effect: true
+  effect: false
   startDelay: 300 # time before typing starts in milliseconds
   typeSpeed: 150 # type speed in milliseconds
   backSpeed: 50 # backspacing speed in milliseconds
