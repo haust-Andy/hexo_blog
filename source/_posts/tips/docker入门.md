@@ -2,9 +2,8 @@
 title: docker入门
 date: 2023-08-11 14:38:24
 tags: 转载 docker
-categories: docker
+categories: 环境配置
 ---
-
 
 # docker入门教程
 >演示视频：

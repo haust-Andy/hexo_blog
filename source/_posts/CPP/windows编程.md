@@ -1,7 +1,7 @@
 ---
 title: windows编程
 date: 2023-05-20 
-tags: windows编程
+tags: windows
 categories: C++
 ---
 

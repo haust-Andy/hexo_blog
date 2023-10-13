@@ -3,7 +3,7 @@
 title: application.properties和application.yml文件的区别：
 date: 2023-06-26 
 tags: springboot
-categories: springboot
+categories: 环境配置
 ---
 ## application.properties和application.yml文件的区别：
 1、application.properties的优先级高于application.yml

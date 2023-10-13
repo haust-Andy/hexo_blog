@@ -2,7 +2,7 @@
 title: javaType 与 jdbcType对应关系：
 date: 2023-06-26 
 tags: springboot
-categories: springboot
+categories: 环境配置
 ---
     jdbcType 与 javaType 的类型对应
     jdbcType	javaType
