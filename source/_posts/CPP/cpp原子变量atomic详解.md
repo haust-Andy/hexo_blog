@@ -251,8 +251,8 @@ int main ()
 
   return 0;
 }
-```
-### compare_exchange_strong函数
+``` 
+###  compare_exchange_strong函数
 这个函数的作用和compare_exchange_weak类似，都是比较一个值和一个期望值是否相等，并且在相等时将该值替换成一个新值。不同的是，compare_exchange_strong会保证原子性，并且如果比较失败则会返回当前值。
 >bool compare_exchange_strong(T& expected, T desired,  
                              memory_order success = memory_order_seq_cst,  
