@@ -11,7 +11,7 @@ class Thread;
 class ThreadWorker;
 class EdoyunThreadPool;
 typedef int (ThreadFuncBase::* FUNCTYPE)();
-class Thread {
+class Thread {  
 private:
     HANDLE m_hThread;
     bool m_bStatus; // false 表示线程将要关闭 true 表示线程正在运行
