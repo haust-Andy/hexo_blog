@@ -4,7 +4,7 @@ date: 2023-10-17 10:23:50
 tags: 线程池
 categories: C++
 ---
-
+![](/source/_posts/CPP/一种windows线程池写法/windowsThreadPool.png)
 ```
 class ThreadFuncBase {};
 class Thread;
