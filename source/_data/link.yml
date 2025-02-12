@@ -3,12 +3,12 @@
   link_list:
     - name: Kevin
       link: https://haust-kevin.github.io/
-      avatar: https://haust-kevin.github.io/blog/images/avatar.jpg
+      avatar: https://haust-kevin.github.io//images/avatar.jpg
       descr: 欲揽星河の小屋
-    - name: AI论坛
-      link: https://xbxb.pro
-      avatar: https://xbxb.pro/wp-content/uploads/2023/08/44e71b09-95c0-41c1-8d38-3b144ffb64c6.png
-      descr: 「 优质博客分享」
+    - name: 爱扑bug的熊
+      link: https://blog.cuijiacai.com/
+      avatar: https://blog.cuijiacai.com/img/profile.png
+      descr: 一个热爱编程的大学生
 
 - class_name: 网站
   class_desc: 值得推荐的网站
